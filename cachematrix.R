@@ -35,7 +35,7 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
-        m <- x$getinv()
+        inv <- x$getinv()
         ## Is the inverse stored in memory?
         ## Return if it is
         if(!is.null(inv)) {
@@ -44,7 +44,7 @@ cacheSolve <- function(x, ...) {
         }
         data <- x$get()
         ## Calculate inverse if it is not stored
-        m <- solve(data, ...)
+        inv <- solve(data, ...)
         x$setinv(inv)
         inv
 }
